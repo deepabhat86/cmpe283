@@ -8,7 +8,7 @@ Note: I may decide to follow these instructions for random assignments, so you s
 they are accurate.
 
 # Related Commands
-- cat /proc/cpuinfo | more 
-- dmesg
-- insmod ./YOUR_COMPILED_KERNEL.ko
-- rmmod YOUR_COMPILED_KERNEL
+- `cat /proc/cpuinfo | more `
+- `dmesg`
+- `insmod ./YOUR_COMPILED_KERNEL.ko`
+- `rmmod YOUR_COMPILED_KERNEL`

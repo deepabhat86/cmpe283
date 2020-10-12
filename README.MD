@@ -2,6 +2,8 @@
 1. Jae Woong Lee
 2. Deepa Vyasabhat
 
+# Go to `Assignments` folder for details
+
 _________________________________________________________________________
 
 Linux kernel
