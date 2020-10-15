@@ -18,8 +18,12 @@ they are accurate.
    6. Run make
    
 ```
+[At source code direcotry]
 sudo insmod cmpe283-1.ko
 dmesg
+
+[After done]
+sudo rmmod cmpe283-1
 ```
 
 # Related Commands
