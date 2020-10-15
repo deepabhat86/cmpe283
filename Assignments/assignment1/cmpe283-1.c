@@ -77,7 +77,7 @@ struct capability_info entry_info[12] =
 	{ 22, "Load PKRS" },
 };
 
-struct capability_info procbased[20] =
+struct capability_info procbased[21] =
 {
 	{ 2, "Interrupt-window exiting" },
 	{ 3, "Use TSC offsetting" },
@@ -96,6 +96,7 @@ struct capability_info procbased[20] =
 	{ 24, "Unconditional I/O exiting" },
 	{ 25, "Use I/O bitmaps" },
 	{ 27, "Monitor trap flag" },
+	{ 28, "Use MSR bitmaps" },
 	{ 29, "MONITOR exiting" },
 	{ 30, "PAUSE exiting" },
 	{ 31, "Activate secondary controls" },
@@ -193,7 +194,7 @@ detect_vmx_features(void)
 	rdmsr(IA32_VMX_PROCBASED_CTLS, lo, hi);
 	pr_info("Procbased Controls MSR: 0x%llx\n",
 		(uint64_t)(lo | (uint64_t)hi << 32));
-	report_capability(procbased, 20, lo, hi);
+	report_capability(procbased, 21, lo, hi);
 
 	rdmsr(IA32_VMX_PROCBASED_CTLS2, lo, hi);
 	pr_info("Secondary Procbased Controls MSR: 0x%llx\n",
