@@ -1,8 +1,8 @@
 # Questions
 1. For each member in your team, provide 1 paragraph detailing what parts of the lab that member
 implemented / researched. (You may skip this question if you are doing the lab by yourself).
-  - Deepa Vyasabhat: Added code for procbased and secondary procbased vm controls.
-  - Jaewoong Lee: Added code for Entry and Exit vm controls.
+  1. Deepa Vyasabhat: Added code for procbased and secondary procbased vm controls.
+  2. Jaewoong Lee: Added code for Entry and Exit vm controls.
 
 
 2. Describe in detail the steps you used to complete the assignment. Consider your reader to be someone
