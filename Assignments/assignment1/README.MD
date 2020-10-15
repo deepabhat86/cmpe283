@@ -10,13 +10,13 @@ skilled in software development but otherwise unfamiliar with the assignment. Go
 question will be recipes that someone can follow to reproduce your development steps.
 Note: I may decide to follow these instructions for random assignments, so you should make sure
 they are accurate.
-
-1) Installed VMware Fusion on Mac
-2) Created a Ubuntu server (64 bit) VM.
-3) Set the "Enable Hypervisor applications in this virtual machine" option in Processor settings in Vmware Fusion.
-4) Clone the repo.
-5) Make changes to the code.
-6) Run make
+   1. Installed VMware Fusion on Mac
+   2. Created a Ubuntu server (64 bit) VM.
+   3. Set the "Enable Hypervisor applications in this virtual machine" option in Processor settings in Vmware Fusion.
+   4. Clone the repo.
+   5. Make changes to the code.
+   6. Run make
+   
 ```
 sudo insmod cmpe283-1.ko
 dmesg
