@@ -75,10 +75,10 @@ sudo insmod arch/x86/kvm/kvm-intel.ko
 sudo virsh start ubuntu18.04
 ```
 
-13. Copy & Paste your test file inside the nested VM
+12. Copy & Paste your test file inside the nested VM
 > The test file measures information inside eax, ebx and ecx
 
-14. Compile the test file with gcc, and execute
+13. Compile the test file with gcc, and execute
 ```
 gcc -o test_assignment2 test.c
 ./test_assignment2
