@@ -15,15 +15,19 @@
               	--image nested-vm-image-2
 5. Download linux = git clone https://github.com/torvalds/linux.git
 6. Check the version
-> root@kernelexp:~# uname -a
-> Linux example-nested-vm 5.4.0-1028-gcp #29~18.04.1-Ubuntu SMP Mon Oct 5 16:41:43 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+```
+root@kernelexp:~# uname -a
+Linux example-nested-vm 5.4.0-1028-gcp #29~18.04.1-Ubuntu SMP Mon Oct 5 16:41:43 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+```
 
 7. Make and build the new kernel
-> cd linux
-> apt-get install fakeroot libncurses5-dev libssl-dev ccache bison flex libelf-dev bc
-> make menuconfig
-> make && make modules && make install && make modules_install
-> sudo reboot
+```
+cd linux
+apt-get install fakeroot libncurses5-dev libssl-dev ccache bison flex libelf-dev bc
+make menuconfig
+make && make modules && make install && make modules_install
+sudo reboot
+```
 
 8. Check the version, it should show the new kernel version
 ```
