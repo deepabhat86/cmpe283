@@ -74,9 +74,9 @@ gcc -o test_assignment2 test.c
 
 # Question 3: Does the number of exits increase at a stable rate? Or are there more exits performed during certain VM operations?  Approximately how many exits does a full VM boot entail?
 1. Does the number of exits increase at a stable rate? Or are there more exits performed during certain VM operations?
-= It depends. Some VM operations may trigger more entries or exits, e.g. operation related to I/O, receiving and sending network packets. These typically may invoke more exits for Page Fault etc.
+	= It depends. Some VM operations may trigger more entries or exits, e.g. operation related to I/O, receiving and sending network packets. These typically may invoke more exits for Page Fault etc.
 2. Approximately how many exits does a full VM boot entail?
-= We can figure out by subtracting the total number of exits after boot by before boot.
+	= We can figure out by subtracting the total number of exits after boot by before boot.
 Number of exits before boot = 3232137
 After boot = 3647809
 It’s about 400,000 exits. Some exits can be included for waiting while taking pictures, and shutdown, bootup etc.
