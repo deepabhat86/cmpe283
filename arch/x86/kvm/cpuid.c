@@ -14,6 +14,7 @@
 #include <linux/vmalloc.h>
 #include <linux/uaccess.h>
 #include <linux/sched/stat.h>
+#include <linux/atomic.h>
 
 #include <asm/processor.h>
 #include <asm/user.h>
@@ -30,6 +31,15 @@
  */
 u32 kvm_cpu_caps[NCAPINTS] __read_mostly;
 EXPORT_SYMBOL_GPL(kvm_cpu_caps);
+
+/*****
+Variables to capture number of exits and number of cycles spent processing
+****/
+atomic_t num_exits = ATOMIC_INIT(0);
+atomic_long_t num_cycles = ATOMIC_INIT(0);
+EXPORT_SYMBOL(num_exits);
+EXPORT_SYMBOL(num_cycles);
+/*******/
 
 static u32 xstate_required_size(u64 xstate_bv, bool compacted)
 {
@@ -1102,13 +1112,24 @@ EXPORT_SYMBOL_GPL(kvm_cpuid);
 int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 {
 	u32 eax, ebx, ecx, edx;
+	u64 tmp;
 
 	if (cpuid_fault_enabled(vcpu) && !kvm_require_cpl(vcpu, 0))
 		return 1;
 
 	eax = kvm_rax_read(vcpu);
 	ecx = kvm_rcx_read(vcpu);
-	kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);
+	
+	/**Custom code to check time taken and update number of exits**/
+	if(eax == 0x4FFFFFFF) {
+ 		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, true);
+ 		eax = (u32) atomic_read(&num_exits);
+		tmp = (u64) atomic_long_read(&num_cycles);
+ 		ecx = (u32) (0xFFFFFFFFLL & tmp); //low 32 bit
+        ebx = (u32) ((0xFFFFFFFF00000000LL & tmp) >> 32); // high 32 bit
+ 	} else {
+ 		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, true);
+ 	}
 	kvm_rax_write(vcpu, eax);
 	kvm_rbx_write(vcpu, ebx);
 	kvm_rcx_write(vcpu, ecx);
