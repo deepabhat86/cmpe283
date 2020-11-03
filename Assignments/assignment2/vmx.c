@@ -5940,7 +5940,6 @@ static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 	u32 vectoring_info = vmx->idt_vectoring_info;
 	int return_value;
 
-	//unsigned long long start_timestamp, end_timestamp;
 	u64 start_timestamp, end_timestamp;
 	start_timestamp = rdtsc();
 	atomic_fetch_add(1,&num_exits);
