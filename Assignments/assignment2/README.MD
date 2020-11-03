@@ -5,15 +5,26 @@
 # Question 2. Steps:
 1. Create a VM on Google Cloud. (used ubuntu-1804 image)
 2. Apply a special license file to enable nested VM.
+```
 	gcloud compute images create nested-vm-image-2 \
 	--source-disk disk2 --source-disk-zone us-west2-b \
   	--licenses "https://www.googleapis.com/compute/v1/projects/vm-options/global/licenses/enable-vmx"
+```
+
 3. Then create a VM using this image
 
-4. gcloud compute instances create example-nested-vm --zone us-west2-b \
+4. 
+```
+gcloud compute instances create example-nested-vm --zone us-west2-b \
               --min-cpu-platform "Intel Haswell" \
               	--image nested-vm-image-2
-5. Download linux = git clone https://github.com/torvalds/linux.git
+```
+
+5. Download linux
+```
+git clone https://github.com/torvalds/linux.git
+```
+
 6. Check the version
 ```
 root@kernelexp:~# uname -a
