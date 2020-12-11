@@ -158,18 +158,14 @@ Total_count:: 12519987
 ```
 
 3. What did you learn from the count of exits? Was the count what you expected? If not, why not?
-```
-The total count of exits from ept (nested paging) was 2.9 million right after boot, whereas no-ept (shadow paging) took 12.5 million.   
+= The total count of exits from ept (nested paging) was 2.9 million right after boot, whereas no-ept (shadow paging) took 12.5 million.   
 This is because the reasons for shadow paging’s exits are when accessing CR3, CR4, or INVLPG, and page fault, which result in more exits.   
 But exits for nested paging occur due to fewer number of reasons, e.g. nested page fault, ept violation.  
-```
 
 4. What changed between the two runs (ept vs no-ept)?
-```
-The key difference between nested paging and shadow paging is that its mechanism on how to translate the final physical address on the host machine.  
+= The key difference between nested paging and shadow paging is that its mechanism on how to translate the final physical address on the host machine.  
 For shadow paging, VMM handles in-use CR3 and fully imitated page table called shadow page table with various exit handlings.   
 Typically the table is flushed when CR3 is switched inside VM. It entails more number and types of exits in order to virtualize memory in VM with shadow paging.   
 For nested paging, VMM owns nested page table. Compared to shadow paging, it only contains “final translation” of each GPT.   
 The final decision of page table walk is determined successful only if the corresponding mapping is present at nested page table.  
 Also, TLB with nested paging include ID and Tags, which helps to utilize TLB and avoid excessive flushing.  
-```
