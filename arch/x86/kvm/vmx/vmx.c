@@ -67,6 +67,71 @@
 //#######modified
 extern atomic_t num_exits;
 extern atomic_long_t num_cycles;
+extern atomic_t count_0;
+extern atomic_t count_1;
+extern atomic_t count_2;
+extern atomic_t count_3;
+extern atomic_t count_4;
+extern atomic_t count_5;
+extern atomic_t count_6;
+extern atomic_t count_7;
+extern atomic_t count_8;
+extern atomic_t count_9;
+extern atomic_t count_10;
+extern atomic_t count_11;
+extern atomic_t count_12;
+extern atomic_t count_13;
+extern atomic_t count_14;
+extern atomic_t count_15;
+extern atomic_t count_16;
+extern atomic_t count_17;
+extern atomic_t count_18;
+extern atomic_t count_19;
+extern atomic_t count_20;
+extern atomic_t count_21;
+extern atomic_t count_22;
+extern atomic_t count_23;
+extern atomic_t count_24;
+extern atomic_t count_25;
+extern atomic_t count_26;
+extern atomic_t count_27;
+extern atomic_t count_28;
+extern atomic_t count_29;
+extern atomic_t count_30;
+extern atomic_t count_31;
+extern atomic_t count_32;
+extern atomic_t count_33;
+extern atomic_t count_34;
+extern atomic_t count_36;
+extern atomic_t count_37;
+extern atomic_t count_39;
+extern atomic_t count_40;
+extern atomic_t count_41;
+extern atomic_t count_43;
+extern atomic_t count_44;
+extern atomic_t count_45;
+extern atomic_t count_46;
+extern atomic_t count_47;
+extern atomic_t count_48;
+extern atomic_t count_49;
+extern atomic_t count_50;
+extern atomic_t count_51;
+extern atomic_t count_52;
+extern atomic_t count_53;
+extern atomic_t count_54;
+extern atomic_t count_55;
+extern atomic_t count_56;
+extern atomic_t count_57;
+extern atomic_t count_58;
+extern atomic_t count_59;
+extern atomic_t count_60;
+extern atomic_t count_61;
+extern atomic_t count_62;
+extern atomic_t count_63;
+extern atomic_t count_64;
+extern atomic_t count_66;
+extern atomic_t count_67;
+extern atomic_t count_68;
 //########
 
 MODULE_AUTHOR("Qumranet");
@@ -5630,56 +5695,56 @@ static int handle_encls(struct kvm_vcpu *vcpu)
  * to be done to userspace and return 0.
  */
 static int (*kvm_vmx_exit_handlers[])(struct kvm_vcpu *vcpu) = {
-	[EXIT_REASON_EXCEPTION_NMI]           = handle_exception_nmi,
-	[EXIT_REASON_EXTERNAL_INTERRUPT]      = handle_external_interrupt,
-	[EXIT_REASON_TRIPLE_FAULT]            = handle_triple_fault,
-	[EXIT_REASON_NMI_WINDOW]	      = handle_nmi_window,
-	[EXIT_REASON_IO_INSTRUCTION]          = handle_io,
-	[EXIT_REASON_CR_ACCESS]               = handle_cr,
-	[EXIT_REASON_DR_ACCESS]               = handle_dr,
-	[EXIT_REASON_CPUID]                   = kvm_emulate_cpuid,
-	[EXIT_REASON_MSR_READ]                = kvm_emulate_rdmsr,
-	[EXIT_REASON_MSR_WRITE]               = kvm_emulate_wrmsr,
-	[EXIT_REASON_INTERRUPT_WINDOW]        = handle_interrupt_window,
-	[EXIT_REASON_HLT]                     = kvm_emulate_halt,
-	[EXIT_REASON_INVD]		      = handle_invd,
-	[EXIT_REASON_INVLPG]		      = handle_invlpg,
-	[EXIT_REASON_RDPMC]                   = handle_rdpmc,
-	[EXIT_REASON_VMCALL]                  = handle_vmcall,
-	[EXIT_REASON_VMCLEAR]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMLAUNCH]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMPTRLD]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMPTRST]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMREAD]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMRESUME]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMWRITE]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMOFF]		      = handle_vmx_instruction,
-	[EXIT_REASON_VMON]		      = handle_vmx_instruction,
-	[EXIT_REASON_TPR_BELOW_THRESHOLD]     = handle_tpr_below_threshold,
-	[EXIT_REASON_APIC_ACCESS]             = handle_apic_access,
-	[EXIT_REASON_APIC_WRITE]              = handle_apic_write,
-	[EXIT_REASON_EOI_INDUCED]             = handle_apic_eoi_induced,
-	[EXIT_REASON_WBINVD]                  = handle_wbinvd,
-	[EXIT_REASON_XSETBV]                  = handle_xsetbv,
-	[EXIT_REASON_TASK_SWITCH]             = handle_task_switch,
-	[EXIT_REASON_MCE_DURING_VMENTRY]      = handle_machine_check,
-	[EXIT_REASON_GDTR_IDTR]		      = handle_desc,
-	[EXIT_REASON_LDTR_TR]		      = handle_desc,
-	[EXIT_REASON_EPT_VIOLATION]	      = handle_ept_violation,
-	[EXIT_REASON_EPT_MISCONFIG]           = handle_ept_misconfig,
-	[EXIT_REASON_PAUSE_INSTRUCTION]       = handle_pause,
-	[EXIT_REASON_MWAIT_INSTRUCTION]	      = handle_mwait,
-	[EXIT_REASON_MONITOR_TRAP_FLAG]       = handle_monitor_trap,
-	[EXIT_REASON_MONITOR_INSTRUCTION]     = handle_monitor,
-	[EXIT_REASON_INVEPT]                  = handle_vmx_instruction,
-	[EXIT_REASON_INVVPID]                 = handle_vmx_instruction,
-	[EXIT_REASON_RDRAND]                  = handle_invalid_op,
-	[EXIT_REASON_RDSEED]                  = handle_invalid_op,
-	[EXIT_REASON_PML_FULL]		      = handle_pml_full,
-	[EXIT_REASON_INVPCID]                 = handle_invpcid,
-	[EXIT_REASON_VMFUNC]		      = handle_vmx_instruction,
-	[EXIT_REASON_PREEMPTION_TIMER]	      = handle_preemption_timer,
-	[EXIT_REASON_ENCLS]		      = handle_encls,
+	[EXIT_REASON_EXCEPTION_NMI]           = handle_exception_nmi, //0
+	[EXIT_REASON_EXTERNAL_INTERRUPT]      = handle_external_interrupt, //1
+	[EXIT_REASON_TRIPLE_FAULT]            = handle_triple_fault, //2
+	[EXIT_REASON_NMI_WINDOW]	      = handle_nmi_window, //8
+	[EXIT_REASON_IO_INSTRUCTION]          = handle_io,  //30
+	[EXIT_REASON_CR_ACCESS]               = handle_cr, //28
+	[EXIT_REASON_DR_ACCESS]               = handle_dr, //29
+	[EXIT_REASON_CPUID]                   = kvm_emulate_cpuid, //10
+	[EXIT_REASON_MSR_READ]                = kvm_emulate_rdmsr, //31
+	[EXIT_REASON_MSR_WRITE]               = kvm_emulate_wrmsr, //32
+	[EXIT_REASON_INTERRUPT_WINDOW]        = handle_interrupt_window,  //7
+	[EXIT_REASON_HLT]                     = kvm_emulate_halt, //12 
+	[EXIT_REASON_INVD]		      = handle_invd, //13
+	[EXIT_REASON_INVLPG]		      = handle_invlpg, //14
+	[EXIT_REASON_RDPMC]                   = handle_rdpmc, //15
+	[EXIT_REASON_VMCALL]                  = handle_vmcall, //18
+	[EXIT_REASON_VMCLEAR]		      = handle_vmx_instruction, //19
+	[EXIT_REASON_VMLAUNCH]		      = handle_vmx_instruction, //20
+	[EXIT_REASON_VMPTRLD]		      = handle_vmx_instruction, //21
+	[EXIT_REASON_VMPTRST]		      = handle_vmx_instruction, //22
+	[EXIT_REASON_VMREAD]		      = handle_vmx_instruction, //23
+	[EXIT_REASON_VMRESUME]		      = handle_vmx_instruction, //24
+	[EXIT_REASON_VMWRITE]		      = handle_vmx_instruction, //25
+	[EXIT_REASON_VMOFF]		      = handle_vmx_instruction, //26
+	[EXIT_REASON_VMON]		      = handle_vmx_instruction, //27
+	[EXIT_REASON_TPR_BELOW_THRESHOLD]     = handle_tpr_below_threshold,//43
+	[EXIT_REASON_APIC_ACCESS]             = handle_apic_access, //44
+	[EXIT_REASON_APIC_WRITE]              = handle_apic_write, //56
+	[EXIT_REASON_EOI_INDUCED]             = handle_apic_eoi_induced, //45
+	[EXIT_REASON_WBINVD]                  = handle_wbinvd, //54
+	[EXIT_REASON_XSETBV]                  = handle_xsetbv, //55
+	[EXIT_REASON_TASK_SWITCH]             = handle_task_switch, //9
+	[EXIT_REASON_MCE_DURING_VMENTRY]      = handle_machine_check, //41
+	[EXIT_REASON_GDTR_IDTR]		      = handle_desc, //46
+	[EXIT_REASON_LDTR_TR]		      = handle_desc, //47
+	[EXIT_REASON_EPT_VIOLATION]	      = handle_ept_violation, //48
+	[EXIT_REASON_EPT_MISCONFIG]           = handle_ept_misconfig, //49
+	[EXIT_REASON_PAUSE_INSTRUCTION]       = handle_pause, //68
+	[EXIT_REASON_MWAIT_INSTRUCTION]	      = handle_mwait, //67
+	[EXIT_REASON_MONITOR_TRAP_FLAG]       = handle_monitor_trap, //37
+	[EXIT_REASON_MONITOR_INSTRUCTION]     = handle_monitor, //39
+	[EXIT_REASON_INVEPT]                  = handle_vmx_instruction, //50
+	[EXIT_REASON_INVVPID]                 = handle_vmx_instruction, //53
+	[EXIT_REASON_RDRAND]                  = handle_invalid_op, //57
+	[EXIT_REASON_RDSEED]                  = handle_invalid_op, //61
+	[EXIT_REASON_PML_FULL]		      = handle_pml_full, //62
+	[EXIT_REASON_INVPCID]                 = handle_invpcid, //58
+	[EXIT_REASON_VMFUNC]		      = handle_vmx_instruction, //59
+	[EXIT_REASON_PREEMPTION_TIMER]	      = handle_preemption_timer, //52
+	[EXIT_REASON_ENCLS]		      = handle_encls, //60
 };
 
 static const int kvm_vmx_max_exit_handlers =
@@ -5928,6 +5993,140 @@ void dump_vmcs(void)
 		       vmcs_read16(VIRTUAL_PROCESSOR_ID));
 }
 
+static void determine_exit_and_count(u32 exit_reason)
+{
+	if (exit_reason == 0) {
+		atomic_fetch_add(1,&count_0);
+	} else if(exit_reason == 1) {
+		atomic_fetch_add(1,&count_1);
+	} else if(exit_reason == 2) {
+		atomic_fetch_add(1,&count_2);
+	} else if(exit_reason == 3) {
+		atomic_fetch_add(1,&count_3);
+	} else if(exit_reason == 4) {
+		atomic_fetch_add(1,&count_4);
+	} else if(exit_reason == 5) {
+		atomic_fetch_add(1,&count_5);
+	} else if(exit_reason == 6) {
+		atomic_fetch_add(1,&count_6);
+	} else if(exit_reason == 7) {
+		atomic_fetch_add(1,&count_7);
+	} else if(exit_reason == 8) {
+		atomic_fetch_add(1,&count_8);
+	} else if(exit_reason == 9) {
+		atomic_fetch_add(1,&count_9);
+	} else if(exit_reason == 10) {
+		atomic_fetch_add(1,&count_10);
+	} else if(exit_reason == 11) {
+		atomic_fetch_add(1,&count_11);
+	} else if(exit_reason == 12) {
+		atomic_fetch_add(1,&count_12);
+	} else if(exit_reason == 13) {
+		atomic_fetch_add(1,&count_13);
+	} else if(exit_reason == 14) {
+		atomic_fetch_add(1,&count_14);
+	} else if(exit_reason == 15) {
+		atomic_fetch_add(1,&count_15);
+	} else if(exit_reason == 16) {
+		atomic_fetch_add(1,&count_16);
+	} else if(exit_reason == 17) {
+		atomic_fetch_add(1,&count_17);
+	} else if(exit_reason == 18) {
+		atomic_fetch_add(1,&count_18);
+	} else if(exit_reason == 19) {
+		atomic_fetch_add(1,&count_19);
+	} else if(exit_reason == 20) {
+		atomic_fetch_add(1,&count_20);
+	} else if(exit_reason == 21) {
+		atomic_fetch_add(1,&count_21);
+	} else if(exit_reason == 22) {
+		atomic_fetch_add(1,&count_22);
+	} else if(exit_reason == 23) {
+		atomic_fetch_add(1,&count_23);
+	} else if(exit_reason == 24) {
+		atomic_fetch_add(1,&count_24);
+	} else if(exit_reason == 25) {
+		atomic_fetch_add(1,&count_25);
+	} else if(exit_reason == 26) {
+		atomic_fetch_add(1,&count_26);
+	} else if(exit_reason == 27) {
+		atomic_fetch_add(1,&count_27);
+	} else if(exit_reason == 28) {
+		atomic_fetch_add(1,&count_28);
+	} else if(exit_reason == 29) {
+		atomic_fetch_add(1,&count_29);
+	} else if(exit_reason == 30) {
+		atomic_fetch_add(1,&count_30);
+	} else if(exit_reason == 31) {
+		atomic_fetch_add(1,&count_31);
+	} else if(exit_reason == 32) {
+		atomic_fetch_add(1,&count_32);
+	} else if(exit_reason == 33) {
+		atomic_fetch_add(1,&count_33);
+	} else if(exit_reason == 34) {
+		atomic_fetch_add(1,&count_34);
+	} else if(exit_reason == 36) {
+		atomic_fetch_add(1,&count_36);
+	} else if(exit_reason == 37) {
+		atomic_fetch_add(1,&count_37);
+	} else if(exit_reason == 39) {
+		atomic_fetch_add(1,&count_39);
+	} else if(exit_reason == 40) {
+		atomic_fetch_add(1,&count_40);
+	} else if(exit_reason == 41) {
+		atomic_fetch_add(1,&count_41);
+	} else if(exit_reason == 43) {
+		atomic_fetch_add(1,&count_43);
+	} else if(exit_reason == 44) {
+		atomic_fetch_add(1,&count_44);
+	} else if(exit_reason == 45) {
+		atomic_fetch_add(1,&count_45);
+	} else if(exit_reason == 46) {
+		atomic_fetch_add(1,&count_46);
+	} else if(exit_reason == 47) {
+		atomic_fetch_add(1,&count_47);
+	} else if(exit_reason == 48) {
+		atomic_fetch_add(1,&count_48);
+	} else if(exit_reason == 49) {
+		atomic_fetch_add(1,&count_49);
+	} else if(exit_reason == 50) {
+		atomic_fetch_add(1,&count_50);
+	} else if(exit_reason == 51) {
+		atomic_fetch_add(1,&count_51);
+	} else if(exit_reason == 52) {
+		atomic_fetch_add(1,&count_52);
+	} else if(exit_reason == 53) {
+		atomic_fetch_add(1,&count_53);
+	} else if(exit_reason == 54) {
+		atomic_fetch_add(1,&count_54);
+	} else if(exit_reason == 55) {
+		atomic_fetch_add(1,&count_55);
+	} else if(exit_reason == 56) {
+		atomic_fetch_add(1,&count_56);
+	} else if(exit_reason == 57) {
+		atomic_fetch_add(1,&count_57);
+	} else if(exit_reason == 58) {
+		atomic_fetch_add(1,&count_58);
+	} else if(exit_reason == 59) {
+		atomic_fetch_add(1,&count_59);
+	} else if(exit_reason == 60) {
+		atomic_fetch_add(1,&count_60);
+	} else if(exit_reason == 61) {
+		atomic_fetch_add(1,&count_61);
+	} else if(exit_reason == 62) {
+		atomic_fetch_add(1,&count_62);
+	} else if(exit_reason == 63) {
+		atomic_fetch_add(1,&count_63);
+	} else if(exit_reason == 64) {
+		atomic_fetch_add(1,&count_64);
+	} else if(exit_reason == 66) {
+		atomic_fetch_add(1,&count_66);
+	} else if(exit_reason == 67) {
+		atomic_fetch_add(1,&count_67);
+	} else if(exit_reason == 68) {
+		atomic_fetch_add(1,&count_68);
+	}
+}
 
 /*
  * The guest has exited.  See if we can fix it or if we need userspace
@@ -5940,10 +6139,14 @@ static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 	u32 vectoring_info = vmx->idt_vectoring_info;
 	int return_value;
 
+	//unsigned long long start_timestamp, end_timestamp;
 	u64 start_timestamp, end_timestamp;
 	start_timestamp = rdtsc();
 	atomic_fetch_add(1,&num_exits);
-
+	
+	// count the number of exits for the exit reason
+	determine_exit_and_count(exit_reason);
+	
 	/*
 	 * Flush logged GPAs PML buffer, this will make dirty_bitmap more
 	 * updated. Another good is, in kvm_vm_ioctl_get_dirty_log, before

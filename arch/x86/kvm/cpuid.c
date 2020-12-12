@@ -8,13 +8,13 @@
  * Copyright 2011 Red Hat, Inc. and/or its affiliates.
  * Copyright IBM Corporation, 2008
  */
-
 #include <linux/kvm_host.h>
 #include <linux/export.h>
 #include <linux/vmalloc.h>
 #include <linux/uaccess.h>
 #include <linux/sched/stat.h>
 #include <linux/atomic.h>
+
 
 #include <asm/processor.h>
 #include <asm/user.h>
@@ -39,6 +39,143 @@ atomic_t num_exits = ATOMIC_INIT(0);
 atomic_long_t num_cycles = ATOMIC_INIT(0);
 EXPORT_SYMBOL(num_exits);
 EXPORT_SYMBOL(num_cycles);
+/*******/
+
+/*****
+Variables to capture number of exits for each exit reason
+Refer to SDM's VMX BASIC EXIT REASONS
+atomic_t count_{exit_number}
+****/
+atomic_t count_0 = ATOMIC_INIT(0);
+atomic_t count_1 = ATOMIC_INIT(0);
+atomic_t count_2 = ATOMIC_INIT(0);
+atomic_t count_3 = ATOMIC_INIT(0);
+atomic_t count_4 = ATOMIC_INIT(0);
+atomic_t count_5 = ATOMIC_INIT(0);
+atomic_t count_6 = ATOMIC_INIT(0);
+atomic_t count_7 = ATOMIC_INIT(0);
+atomic_t count_8 = ATOMIC_INIT(0);
+atomic_t count_9 = ATOMIC_INIT(0);
+atomic_t count_10 = ATOMIC_INIT(0);
+atomic_t count_11 = ATOMIC_INIT(0);
+atomic_t count_12 = ATOMIC_INIT(0);
+atomic_t count_13 = ATOMIC_INIT(0);
+atomic_t count_14 = ATOMIC_INIT(0);
+atomic_t count_15 = ATOMIC_INIT(0);
+atomic_t count_16 = ATOMIC_INIT(0);
+atomic_t count_17 = ATOMIC_INIT(0);
+atomic_t count_18 = ATOMIC_INIT(0);
+atomic_t count_19 = ATOMIC_INIT(0);
+atomic_t count_20 = ATOMIC_INIT(0);
+atomic_t count_21 = ATOMIC_INIT(0);
+atomic_t count_22 = ATOMIC_INIT(0);
+atomic_t count_23 = ATOMIC_INIT(0);
+atomic_t count_24 = ATOMIC_INIT(0);
+atomic_t count_25 = ATOMIC_INIT(0);
+atomic_t count_26 = ATOMIC_INIT(0);
+atomic_t count_27 = ATOMIC_INIT(0);
+atomic_t count_28 = ATOMIC_INIT(0);
+atomic_t count_29 = ATOMIC_INIT(0);
+atomic_t count_30 = ATOMIC_INIT(0);
+atomic_t count_31 = ATOMIC_INIT(0);
+atomic_t count_32 = ATOMIC_INIT(0);
+atomic_t count_33 = ATOMIC_INIT(0);
+atomic_t count_34 = ATOMIC_INIT(0);
+atomic_t count_36 = ATOMIC_INIT(0);
+atomic_t count_37 = ATOMIC_INIT(0);
+atomic_t count_39 = ATOMIC_INIT(0);
+atomic_t count_40 = ATOMIC_INIT(0);
+atomic_t count_41 = ATOMIC_INIT(0);
+atomic_t count_43 = ATOMIC_INIT(0);
+atomic_t count_44 = ATOMIC_INIT(0);
+atomic_t count_45 = ATOMIC_INIT(0);
+atomic_t count_46 = ATOMIC_INIT(0);
+atomic_t count_47 = ATOMIC_INIT(0);
+atomic_t count_48 = ATOMIC_INIT(0);
+atomic_t count_49 = ATOMIC_INIT(0);
+atomic_t count_50 = ATOMIC_INIT(0);
+atomic_t count_51 = ATOMIC_INIT(0);
+atomic_t count_52 = ATOMIC_INIT(0);
+atomic_t count_53 = ATOMIC_INIT(0);
+atomic_t count_54 = ATOMIC_INIT(0);
+atomic_t count_55 = ATOMIC_INIT(0);
+atomic_t count_56 = ATOMIC_INIT(0);
+atomic_t count_57 = ATOMIC_INIT(0);
+atomic_t count_58 = ATOMIC_INIT(0);
+atomic_t count_59 = ATOMIC_INIT(0);
+atomic_t count_60 = ATOMIC_INIT(0);
+atomic_t count_61 = ATOMIC_INIT(0);
+atomic_t count_62 = ATOMIC_INIT(0);
+atomic_t count_63 = ATOMIC_INIT(0);
+atomic_t count_64 = ATOMIC_INIT(0);
+atomic_t count_66 = ATOMIC_INIT(0);
+atomic_t count_67 = ATOMIC_INIT(0);
+atomic_t count_68 = ATOMIC_INIT(0);
+EXPORT_SYMBOL(count_0);
+EXPORT_SYMBOL(count_1);
+EXPORT_SYMBOL(count_2);
+EXPORT_SYMBOL(count_3);
+EXPORT_SYMBOL(count_4);
+EXPORT_SYMBOL(count_5);
+EXPORT_SYMBOL(count_6);
+EXPORT_SYMBOL(count_7);
+EXPORT_SYMBOL(count_8);
+EXPORT_SYMBOL(count_9);
+EXPORT_SYMBOL(count_10);
+EXPORT_SYMBOL(count_11);
+EXPORT_SYMBOL(count_12);
+EXPORT_SYMBOL(count_13);
+EXPORT_SYMBOL(count_14);
+EXPORT_SYMBOL(count_15);
+EXPORT_SYMBOL(count_16);
+EXPORT_SYMBOL(count_17);
+EXPORT_SYMBOL(count_18);
+EXPORT_SYMBOL(count_19);
+EXPORT_SYMBOL(count_20);
+EXPORT_SYMBOL(count_21);
+EXPORT_SYMBOL(count_22);
+EXPORT_SYMBOL(count_23);
+EXPORT_SYMBOL(count_24);
+EXPORT_SYMBOL(count_25);
+EXPORT_SYMBOL(count_26);
+EXPORT_SYMBOL(count_27);
+EXPORT_SYMBOL(count_28);
+EXPORT_SYMBOL(count_29);
+EXPORT_SYMBOL(count_30);
+EXPORT_SYMBOL(count_31);
+EXPORT_SYMBOL(count_32);
+EXPORT_SYMBOL(count_33);
+EXPORT_SYMBOL(count_34);
+EXPORT_SYMBOL(count_36);
+EXPORT_SYMBOL(count_37);
+EXPORT_SYMBOL(count_39);
+EXPORT_SYMBOL(count_40);
+EXPORT_SYMBOL(count_41);
+EXPORT_SYMBOL(count_43);
+EXPORT_SYMBOL(count_44);
+EXPORT_SYMBOL(count_45);
+EXPORT_SYMBOL(count_46);
+EXPORT_SYMBOL(count_47);
+EXPORT_SYMBOL(count_48);
+EXPORT_SYMBOL(count_49);
+EXPORT_SYMBOL(count_50);
+EXPORT_SYMBOL(count_51);
+EXPORT_SYMBOL(count_52);
+EXPORT_SYMBOL(count_53);
+EXPORT_SYMBOL(count_54);
+EXPORT_SYMBOL(count_55);
+EXPORT_SYMBOL(count_56);
+EXPORT_SYMBOL(count_57);
+EXPORT_SYMBOL(count_58);
+EXPORT_SYMBOL(count_59);
+EXPORT_SYMBOL(count_60);
+EXPORT_SYMBOL(count_61);
+EXPORT_SYMBOL(count_62);
+EXPORT_SYMBOL(count_63);
+EXPORT_SYMBOL(count_64);
+EXPORT_SYMBOL(count_66);
+EXPORT_SYMBOL(count_67);
+EXPORT_SYMBOL(count_68);
 /*******/
 
 static u32 xstate_required_size(u64 xstate_bv, bool compacted)
@@ -1109,6 +1246,162 @@ bool kvm_cpuid(struct kvm_vcpu *vcpu, u32 *eax, u32 *ebx,
 }
 EXPORT_SYMBOL_GPL(kvm_cpuid);
 
+int return_the_count(u32 exit_reason)
+{
+	int result;
+	
+	if (exit_reason == 0) {
+		result = (u32) atomic_read(&count_0);
+	} else if(exit_reason == 1) {
+		result = (u32) atomic_read(&count_1);
+	} else if(exit_reason == 2) {
+		result = (u32) atomic_read(&count_2);
+	} else if(exit_reason == 3) {
+		//result = (u32) atomic_read(&count_3);
+		result = -2;
+	} else if(exit_reason == 4) {
+		//result = (u32) atomic_read(&count_4);
+		result = -2;
+	} else if(exit_reason == 5) {
+	//	result = (u32) atomic_read(&count_5);
+		result = -2;
+	} else if(exit_reason == 6) {
+//		result = (u32) atomic_read(&count_6);
+		result = -2;
+	} else if(exit_reason == 7) {
+		result = (u32) atomic_read(&count_7);
+	} else if(exit_reason == 8) {
+		result = (u32) atomic_read(&count_8);
+	} else if(exit_reason == 9) {
+		result = (u32) atomic_read(&count_9);
+	} else if(exit_reason == 10) {
+		result = (u32) atomic_read(&count_10);
+	} else if(exit_reason == 11) {
+		//result = (u32) atomic_read(&count_11);
+		result = -2;
+	} else if(exit_reason == 12) {
+		result = (u32) atomic_read(&count_12);
+	} else if(exit_reason == 13) {
+		result = (u32) atomic_read(&count_13);
+	} else if(exit_reason == 14) {
+		result = (u32) atomic_read(&count_14);
+	} else if(exit_reason == 15) {
+		result = (u32) atomic_read(&count_15);
+	} else if(exit_reason == 16) {
+		//result = (u32) atomic_read(&count_16);
+		result = -2;
+	} else if(exit_reason == 17) {
+		//result = (u32) atomic_read(&count_17);
+		result = -2;
+	} else if(exit_reason == 18) {
+		result = (u32) atomic_read(&count_18);
+	} else if(exit_reason == 19) {
+		result = (u32) atomic_read(&count_19);
+	} else if(exit_reason == 20) {
+		result = (u32) atomic_read(&count_20);
+	} else if(exit_reason == 21) {
+		result = (u32) atomic_read(&count_21);
+	} else if(exit_reason == 22) {
+		result = (u32) atomic_read(&count_22);
+	} else if(exit_reason == 23) {
+		result = (u32) atomic_read(&count_23);
+	} else if(exit_reason == 24) {
+		result = (u32) atomic_read(&count_24);
+	} else if(exit_reason == 25) {
+		result = (u32) atomic_read(&count_25);
+	} else if(exit_reason == 26) {
+		result = (u32) atomic_read(&count_26);
+	} else if(exit_reason == 27) {
+		result = (u32) atomic_read(&count_27);
+	} else if(exit_reason == 28) {
+		result = (u32) atomic_read(&count_28);
+	} else if(exit_reason == 29) {
+		result = (u32) atomic_read(&count_29);
+	} else if(exit_reason == 30) {
+		result = (u32) atomic_read(&count_30);
+	} else if(exit_reason == 31) {
+		result = (u32) atomic_read(&count_31);
+	} else if(exit_reason == 32) {
+		result = (u32) atomic_read(&count_32);
+	} else if(exit_reason == 33) {
+		//result = (u32) atomic_read(&count_33);
+		result = -2;
+	} else if(exit_reason == 34) {
+		//result = (u32) atomic_read(&count_34);
+		result = -2;
+	} else if(exit_reason == 36) {
+//		result = (u32) atomic_read(&count_36);
+		result = -2;
+	} else if(exit_reason == 37) {
+		result = (u32) atomic_read(&count_37);
+	} else if(exit_reason == 39) {
+		result = (u32) atomic_read(&count_39);
+	} else if(exit_reason == 40) {
+		//result = (u32) atomic_read(&count_40);
+		result = -2;
+	} else if(exit_reason == 41) {
+		result = (u32) atomic_read(&count_41);
+	} else if(exit_reason == 43) {
+		result = (u32) atomic_read(&count_43);
+	} else if(exit_reason == 44) {
+		result = (u32) atomic_read(&count_44);
+	} else if(exit_reason == 45) {
+		result = (u32) atomic_read(&count_45);
+	} else if(exit_reason == 46) {
+		result = (u32) atomic_read(&count_46);
+	} else if(exit_reason == 47) {
+		result = (u32) atomic_read(&count_47);
+	} else if(exit_reason == 48) {
+		result = (u32) atomic_read(&count_48);
+	} else if(exit_reason == 49) {
+		result = (u32) atomic_read(&count_49);
+	} else if(exit_reason == 50) {
+		result = (u32) atomic_read(&count_50);
+	} else if(exit_reason == 51) {
+		//result = (u32) atomic_read(&count_51);
+		result = -2;
+	} else if(exit_reason == 52) {
+		result = (u32) atomic_read(&count_52);
+	} else if(exit_reason == 53) {
+		result = (u32) atomic_read(&count_53);
+	} else if(exit_reason == 54) {
+		result = (u32) atomic_read(&count_54);
+	} else if(exit_reason == 55) {
+		result = (u32) atomic_read(&count_55);
+	} else if(exit_reason == 56) {
+		result = (u32) atomic_read(&count_56);
+	} else if(exit_reason == 57) {
+		result = (u32) atomic_read(&count_57);
+	} else if(exit_reason == 58) {
+		result = (u32) atomic_read(&count_58);
+	} else if(exit_reason == 59) {
+		result = (u32) atomic_read(&count_59);
+	} else if(exit_reason == 60) {
+		result = (u32) atomic_read(&count_60);
+	} else if(exit_reason == 61) {
+		result = (u32) atomic_read(&count_61);
+	} else if(exit_reason == 62) {
+		result = (u32) atomic_read(&count_62);
+	} else if(exit_reason == 63) {
+		//result = (u32) atomic_read(&count_63);
+		result = -2;
+	} else if(exit_reason == 64) {
+		//result = (u32) atomic_read(&count_64);
+		result = -2;
+	} else if(exit_reason == 66) {
+		//result = (u32) atomic_read(&count_66);
+		result = -2;
+	} else if(exit_reason == 67) {
+		result = (u32) atomic_read(&count_67);
+	} else if(exit_reason == 68) {
+		result = (u32) atomic_read(&count_68);
+	} else { // if exit number on ecx is not defined by the SDM
+		result = -1;
+	}
+	
+	return result;
+}
+
 int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 {
 	u32 eax, ebx, ecx, edx;
@@ -1127,7 +1420,41 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 		tmp = (u64) atomic_long_read(&num_cycles);
  		ecx = (u32) (0xFFFFFFFFLL & tmp); //low 32 bit
         ebx = (u32) ((0xFFFFFFFF00000000LL & tmp) >> 32); // high 32 bit
- 	} else {
+ 	} 
+	else if(eax == 0x4FFFFFFE) {
+		// if exit number on ecx is not defined by the SDM
+		// return 0 in all %eax, %ebx, %ecx registers
+		// return 0xFFFFFFFF in %edx
+		// For exit types not enabled in KVM, return 0s in all four registers.
+		tmp = ecx;
+		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, true);
+		// eax = return_the_count(ecx);
+		// if (ecx == 1) eax = (u32) atomic_read(&count_1);
+		// else if (ecx == 2) eax = (u32) atomic_read(&count_2);
+					
+		eax = (u32) return_the_count(tmp);
+		ecx = tmp;
+
+		// eax = (u32) atomic_read(&count_1);
+		// ebx = (u32) 10;
+		// ecx = (u32) 10;
+		// edx = (u32) 10;
+
+		if (eax == -1) { // if exit number on ecx is not defined by the SDM
+			eax = (u32) 0;
+			ebx = (u32) 0;
+			ecx = (u32) 0;
+			edx = (u32) 0xFFFFFFFF;
+		}
+		
+		if (eax == -2) {// if exit number is not enabled in the KVM
+			eax = (u32) 0;
+			ebx = (u32) 0;
+			ecx = (u32) 0;
+			edx = (u32) 0;
+		}
+	}
+	else {
  		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, true);
  	}
 	kvm_rax_write(vcpu, eax);
