@@ -97,14 +97,19 @@ gcc -o test_assignment3 test.c
 where param is the exit type you want to check
 
 ## Question 3: Does the number of exits increase at a stable rate? Or are there more exits performed during certain VM operations?  Approximately how many exits does a full VM boot entail?
+
  Does the number of exits increase at a stable rate? Or are there more exits performed during certain VM operations?
+ 
 = It depends. Some VM operations may trigger more entries or exits, e.g. operation related to I/O, receiving and sending network packets and CPUID. These typically may invoke more exits for Page Fault etc. CPUID is seen here because we are explicitly calling CPUID for different exit reasons.
+
 Approximately how many exits does a full VM boot entail?
-For this question, we use the same program as for assignment 2.
-= We can figure out by subtracting the total number of exits after boot by before boot
+
+For this question, we use the same program as for assignment 2. We can figure out by subtracting the total number of exits after boot by before boot
 Number of exits before boot = 3232137 After boot = 3647809 It’s about 400,000 exits. . Some exits can be included for waiting while taking pictures, and shutdown, bootup etc.
 
 ## Question 4: Of the exit types defined in the SDM, which are the most frequent? Least?
+
 Most frequent: EXIT_REASON_IO_INSTRUCTION, EXIT_REASON_CPUID 
+
 Least Frequent: EXIT_REASON_APIC_ACCESS, EXIT_REASON_DR_ACCESS
  
