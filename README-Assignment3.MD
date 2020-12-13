@@ -3,7 +3,7 @@
 	2. Jae Woong = Modifying the kernel to add new leaf function to count exits and test code.
 
 ## Question 2. Steps:
-NOTE: If building directly from this repo, please rename the cloned git folder to “linux” before executing make.
+# NOTE: If building directly from this repo, please rename the cloned git folder to “linux” before executing make.
 Create a VM on Google Cloud. (used ubuntu-1804 image)
 Apply a special license file to enable nested VM.
 
